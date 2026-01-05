@@ -95,6 +95,16 @@ These instructions cover both the running of the packaged version and the raw co
 
    3.1 `python3 main.py` on **Linux Machines**
 
+   3.1.2 You can also add the script to your .bash_aliases for quick use. 
+
+   ```bash
+   # Add this line after editing it to meet your criteria and add it to your .bash_aliases file.
+   # replace <nick> with what you want the shortcut to be named example 'spc'
+   # replace <path_to_main.py> with the absolute path to the project.
+
+   alias <nick>='python3 <path_to_main.py>'
+   ```
+
    3.2 `python main.py` on **Windows Machines** 
 
 
@@ -142,3 +152,8 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: src/pomodoraClock/assets/images/final.png
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+
+
+
+### TODO
+- Replace pygame with something else that can make a sound.

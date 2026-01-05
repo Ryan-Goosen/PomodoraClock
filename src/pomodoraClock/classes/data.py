@@ -6,7 +6,8 @@ from pathlib import Path
 class Data:
 
     def __init__(self):
-        self.file_path = Path('src/pomodoraClock/config/settings.ini')
+        BASE_DIR = Path(__file__).parent.parent
+        self.file_path = BASE_DIR / "config" / "settings.ini"
         self.config = ConfigParser()
         self._read_file()  
 
