@@ -89,7 +89,16 @@ Run the following command in the repo directory:
 ```bash
 uv venv
 uv sync
-uv run pyinstaller --onefile --paths src/pomodoraClock/ --add-data "src/pomodoraClock/assets.assets" --add-data "src/pomodoraClock/config.config" src/pomodoraClock/main.py
+```
+
+#### Linux / MacOS
+```bash
+uv run pyinstaller --onefile --paths src/pomodoraClock/ --add-data "src/pomodoraClock/assets:assets" --add-data "src/pomodoraClock/config:config" src/pomodoraClock/main.py
+```
+
+#### Windows
+```bash
+uv run pyinstaller --onefile --paths src/pomodoraClock/ --add-data "src/pomodoraClock/assets;assets" --add-data "src/pomodoraClock/config;config" src/pomodoraClock/main.py
 ```
 
 ### Prerequisites
