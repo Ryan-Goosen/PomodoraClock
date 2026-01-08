@@ -2,12 +2,12 @@ import os
 
 from configparser import ConfigParser
 from pathlib import Path
+from pathing import get_path
 
 class Data:
 
     def __init__(self):
-        BASE_DIR = Path(__file__).parent.parent
-        self.file_path = BASE_DIR / "config" / "settings.ini"
+        self.file_path = Path(get_path("config/settings.ini"))
         self.config = ConfigParser()
         self._read_file()  
 

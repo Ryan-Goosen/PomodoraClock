@@ -8,6 +8,7 @@ os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 import pygame
 
 from classes.data import Data
+from pathing import get_path
 
 LABEL_TEXT_COLOUR = "white"
 LABEL_FONT = ("Times New Roman", 15, "bold italic")
@@ -18,7 +19,6 @@ PAUSED_HEADER_FONT = ("Times New Roman", 50, "bold italic")
 class PomodoraClock:
 
     def __init__(self, root):
-        self.BASE_DIR = Path(__file__).parent.parent.parent.parent
         self.root = root
 
         # LOADING IN CONFIG DATA
@@ -64,7 +64,7 @@ class PomodoraClock:
         # SOUND
 
         pygame.init()
-        self.sound = pygame.mixer.Sound(Path(self.BASE_DIR / "src/pomodoraClock/assets/sounds/switch-noise.wav"))
+        self.sound = pygame.mixer.Sound(get_path("assets/sounds/switch-noise.wav"))
 
 
 
@@ -79,7 +79,7 @@ class PomodoraClock:
         self.canvas.coords(self.text_id, 175, 160)
 
 
-        home_page_image = tkb.PhotoImage(file=self.BASE_DIR / "src/pomodoraClock/assets/images/actual/HOME.png")
+        home_page_image = tkb.PhotoImage(file=get_path("assets/images/actual/HOME.png"))
         self.canvas.itemconfig(self.image_id, image=home_page_image)
         self.canvas.image = home_page_image
 
@@ -92,7 +92,7 @@ class PomodoraClock:
         self.right_btn.place(x=195, y=355)
 
     def config_page(self):
-        config_page_image = tkb.PhotoImage(file=Path(self.BASE_DIR / 'src/pomodoraClock/assets/images/actual/CONFIG.png'))
+        config_page_image = tkb.PhotoImage(file=get_path('assets/images/actual/CONFIG.png'))
         self._show_spinbox()
         self._show_labels()
 
@@ -113,7 +113,7 @@ class PomodoraClock:
     def start_page(self):
         self.sessions -= 1
         self.current_state = "active"
-        start_page_image = tkb.PhotoImage(file=Path(self.BASE_DIR / 'src/pomodoraClock/assets/images/actual/STUDYING.png'))
+        start_page_image = tkb.PhotoImage(file=get_path('assets/images/actual/STUDYING.png'))
         self.canvas.itemconfig(self.image_id, image=start_page_image)
         self.canvas.image = start_page_image
 
@@ -132,7 +132,7 @@ class PomodoraClock:
         self._start_timer()
 
     def pause_page(self):
-        pause_page_image = tkb.PhotoImage(file=Path(self.BASE_DIR / 'src/pomodoraClock/assets/images/actual/PAUSED.png'))
+        pause_page_image = tkb.PhotoImage(file=get_path('assets/images/actual/PAUSED.png'))
         self.canvas.itemconfig(self.image_id, image=pause_page_image)
         self.canvas.image = pause_page_image
 
@@ -149,7 +149,7 @@ class PomodoraClock:
     def resting_page(self):
         self.current_state = "rest"
 
-        resting_page_image = tkb.PhotoImage(file=Path(self.BASE_DIR / 'src/pomodoraClock/assets/images/actual/RESTING.png'))
+        resting_page_image = tkb.PhotoImage(file=get_path('assets/images/actual/RESTING.png'))
         self.canvas.itemconfig(self.image_id, image=resting_page_image)
         self.canvas.image = resting_page_image
 

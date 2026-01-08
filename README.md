@@ -74,7 +74,23 @@ I created this Pomodora-Clock to help me start working by creating small time co
 <!-- GETTING STARTED -->
 ## Getting Started
 
-These instructions cover both the running of the packaged version and the raw code.
+These instructions cover both the running of the packaged version and the raw code. 
+
+### Executable
+
+Run the executable inside the **executable** directory is an exacutable you can run.
+
+### Building the code
+
+#### Prerequisites
+- uv
+
+Run the following command in the repo directory:
+```bash
+uv venv
+uv sync
+uv run pyinstaller --onefile --paths src/pomodoraClock/ --add-data "src/pomodoraClock/assets.assets" --add-data "src/pomodoraClock/config.config" src/pomodoraClock/main.py
+```
 
 ### Prerequisites
 - Python
