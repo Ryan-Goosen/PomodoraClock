@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  builder:
+    image: python:3.11-windowsservercore
+    volumes:
+      - ./:/app                  # Mount current directory to /app
+      - ./dist:/app/dist         # Mount dist folder for output
+    working_dir: /app
+    command: powershell -Command "pip install pyinstaller && pip install -r requirements.txt && pyinstaller --onefile --paths src/pomodoraClock/ --add-data 'src/pomodoraClock/assets;assets' --add-data 'src/pomodoraClock/config;config' src/pomodoraClock/main.py"
